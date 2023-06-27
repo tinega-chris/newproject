@@ -19,8 +19,10 @@ app.set('view engine', 'ejs');
 
  
 const categories = ['fruit', 'vegetable', 'dairy'];
-app.get('./products',(req,res)=>{
-    res.send('WOOF')
+app.get('./products',async(req,res)=>{
+   const products = await Product.find({})
+    console.log('products')
+res.render('products/index')
 })
  app.listen(3000, () => {
     console.log("APP IS LISTENING ON PORT 3000!")
